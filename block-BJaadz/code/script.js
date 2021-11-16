@@ -1,11 +1,12 @@
 // Select the h1 element and store it in a variable named heading.
-
+let heading = document.querySelector("h1");
 // Check the typeof heading and log it.
-
+console.log(typeof heading);
 // Change the color of heading to black.
-
+console.dir(heading);
+heading.style.color = "black";
 // Select all the hr elements and store it in a variable named allHrs using querySelectorAll
-
+let allHrs = document.querySelectorAll("hr");
 /* 
 Convert the NodeList returned by querySelectorAll to Array using Array.from() or spread operator and store it in allHrsArray
 
@@ -14,31 +15,41 @@ Array.from converts an array kind of data into array so we can use methods like 
 HINT:
 let allHrsArray = Array.from(allHrs)
 */
-
+let allHrsArray = Array.from(allHrs);
 // Set the border of the all the hr elements to "1px solid tomato"
-
+// allHrs.style.border = `1px solid tomato`;
+// function myFunction() {
+//   document.querySelectorAll("hr").style.borderColor = "1px solid red";
+// }
 // Change the background of all the hr to "antiquewhite" using for of loop.
-
+for(let arr of allHrsArray) {
+   arr.style.backgroundColor = "antiquewhite";
+}
 // Change the 'border-radius' of all the hr to "5px" using array.
-
+// allHrsArray.style.b
 // Change the alignment of the heading(h1) to center.
-
+heading.style.textAlign = "center";
 // Change the font size of the heading to 3rem.
-
+heading.style.fontSize = "3rem";
 // Change the border of hr with class 'image' to `2px solid purple`.
-
+let imgHr = document.querySelector(".image");
+console.dir(imgHr);
 // Hide the box number 17 (last box).
-
+let lastBox = document.querySelector(".seventeen");
+lastBox.style.display = "none"
 // Change the border of all the hr element from solid to dashed type
-
+// let hrAll = document.querySelectorAll("hr").style.;
+// hrAll.style.border = "1px dashed black"
 // Create a pragraph element and store it in variable named 'para' using `createElement`
-
+let para = document.createElement("p");
 // Change the inner text of para to "querySelector returns an element you can maupulate but querySelectorAll returns the collection of elements in array kind of structure."
-
+para.innerText = "querySelector returns an element you can maupulate but querySelectorAll returns the collection of elements in array kind of structure.";
 // Remove all the elements from box 1
-
+let elmOfBoxOne = document.querySelector(".one");
+console.dir(elmOfBoxOne);
+elmOfBoxOne.remove();
 // Replace all the elements inside box 1 with the para (you created above)
-
+elmOfBoxOne.append(para);
 /* Walking the DOM
 Do the following after selecting box 16 and storing in variable named box16
 
@@ -56,17 +67,35 @@ Do the following after selecting box 16 and storing in variable named box16
 
   - Focus on the difference between element and node
 */
+let box16 = document.querySelector(".sixteen");
+box16.parentNode;
+box16.childNodes;
+box16.previousSibling;
+box16.nextSibling;
+box16.firstChild;
+box16.lastChild;
 
+box16.previousElementSibling;
+box16.nextElementSibling;
+box16.firstElementChild;
+box16.lastElementChild;
 // Select box 2 and append a new paragraph element with content "Append inserts as last child" just after hr element.
-
+let box2 = document.querySelector(".two");
+let newPara = document.createElement("p");
+newPara = "Append inserts as last child";
+box2.append(newPara);
 // Select box 3 and prepend a new paragraph element with content "Prepend inserts as first child" just before hr element.
-
+let box3 = document.querySelector(".three");
+let newPara3 = document.createElement("p");
+newPara3 = "Prepend inserts as first child";
+box3.prepend(newPara3);
 // Change the border of box 4 to '1px solid black'
-
+let box4 = document.querySelector(".four");
+box4.style.border = `1px solid black`;
 // Change the border radius of box 5 to 10px.
-
+document.querySelector(".five").style.borderRadius = "10px";
 // Change the text color of box 6 to black.
-
+document.querySelector(".six").style.color = "black";
 // Change the font size of the para inside box 1 to 0.8rem.
 
 // Change the background of all the alternate boxes (1, 3, 5, ....) to aliceblue
