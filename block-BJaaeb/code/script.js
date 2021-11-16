@@ -6,8 +6,13 @@ default value to be "text" and return the input element inside label. (create it
 */
 
 // Your code goes here
-function createInputElm(label, type = "text") {
-  return document.createElement("input");
+function createInputElm(labelMessage, type = "text") {
+  let label = document.createElement("label");
+  let input = document.createElement("input");
+  input.type = type;
+  label.innerText = labelMessage;
+  label.append(input);
+  return label;
 }
 
 // TEST
@@ -17,6 +22,10 @@ createInputElm('Your age', 'number'); //<label>Your age: <input type="number"></
 // 2. Do the same thing as above using string literal like `<h1>Hello</h1>`
 
 // Your code goes here
+function createInputElm(labelMessage, type = "text") {
+  let html = `<label>${labelMessage} <input type = "${type}"></input></label>`
+  return html;
+}
 
 // TEST
 createInputElm('Your name'); //<label>Your name: <input type="text"></label>
@@ -25,8 +34,10 @@ createInputElm('Your age', 'number'); //<label>Your age: <input type="number"></
 // 3. Create a function named `createList` that accept and array of data like ['Mango', 'Apple', 'Banana'] and returns
 // the html for the link like <ul> <li>Mango</li>  <li>Apple</li>  <li>Banana</li> </ul>
 // Your code goes here
-function createList() {
-
+function createList(data = []) {
+  let html = `<ul>${data.map((elm) => `<li>${elm}</li>`).join("")}
+  </ul>`;
+  return html;
 }
 
 // TEST
@@ -46,17 +57,24 @@ function createList() {
 */
 
 // Your code goes here
-function createTodoList() {
-  
+function createTodoList(data = []) {
+  let html = `<ul>${data.map((todo) => 
+    `<li>
+       <p>${todo.name}</p>
+       <input type = "checked" ${todo.isDone ? "checked" : ""} name = "">
+       <span>X</span>
+       </input>
+  </li>`).join("")}
+  </ul>`;
 }
 
 // TEST
-// createTodoList([
-//   { name: 'Learn DOM', isDone: false },
-//   { name: 'Learn JS', isDone: true },
-// ]);
-// createTodoList([
-//   { name: 'Learn DOM', isDone: false },
-//   { name: 'Learn React', isDone: true },
-//   { name: 'Learn JS', isDone: true },
-// ]);
+createTodoList([
+  { name: 'Learn DOM', isDone: false },
+  { name: 'Learn JS', isDone: true },
+]);
+createTodoList([
+  { name: 'Learn DOM', isDone: false },
+  { name: 'Learn React', isDone: true },
+  { name: 'Learn JS', isDone: true },
+]);
