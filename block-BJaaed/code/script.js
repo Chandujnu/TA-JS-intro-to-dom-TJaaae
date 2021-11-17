@@ -11,7 +11,7 @@
 // #### Data for the app
 
 
-
+let allBooks = {
   books: [
     {
       isbn: "9781593275846",
@@ -128,21 +128,27 @@
       website: "https://shichuan.github.io/javascript-patterns/",
     },
   ],
+};
+
 
 let ul = document.createElement("ul");
 
-books.forEach((book) => {
+allBooks.books.forEach((book) => {
     let li = document.createElement("li");
     let img = document.createElement("img");
     img.src = book.image;
     let h2 = document.createElement("h2");
     h2.innerText = book.title;
+    let p = document.createElement("p");
+    p.innerText = "Author:";
     let span = document.createElement("span");
     span.innerText = book.author;
+    p.append(span);
     let btn = document.createElement("button");
     btn.textContent = "Buy Now"; 
     
-    li.append(img, h2, span, btn);
+    li.append(img, h2, p, btn);
 
     ul.append(li);
+    console.log(ul);
 });
