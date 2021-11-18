@@ -131,7 +131,7 @@ let allBooks = {
 };
 
 
-let ul = document.createElement("ul");
+let ul = document.querySelector("ul");
 
 allBooks.books.forEach((book) => {
     let li = document.createElement("li");
@@ -140,7 +140,7 @@ allBooks.books.forEach((book) => {
     let h2 = document.createElement("h2");
     h2.innerText = book.title;
     let p = document.createElement("p");
-    p.innerText = "Author:";
+    p.innerText = `Author:`;
     let span = document.createElement("span");
     span.innerText = book.author;
     p.append(span);
@@ -150,5 +150,5 @@ allBooks.books.forEach((book) => {
     li.append(img, h2, p, btn);
 
     ul.append(li);
-    console.log(ul);
+   
 });
