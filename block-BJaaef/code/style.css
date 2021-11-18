@@ -100,7 +100,7 @@ button {
   padding: 8px 50px;
   border-radius: 6px;
 }
-ul {
+.box {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
